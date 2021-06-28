@@ -45,19 +45,9 @@ title: 首页
                     我们继承了比特币卓越的安全机制，并提供了高额的交易吞吐量的能力，通过改进 PoW 算法和引入多层网络。<br />
                     此外，我们创建了分层智能合约模型，可以保证安全和稳定的。基础设施加密货币，并能满足 DeFi 的性能要求。</div>
                 <div class="button btn-8">
-                    <a style="color: white" target="_blank" href="https://developer.starcoin.org/zh/sips/sip-2/">
+                    <a style="color: white" href="/zh/developer/sips/sip-2/">
                         <span>White-paper Link</span>
                     </a>
-                    <svg t="1621312353017" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" p-id="4265" width="200" height="200">
-                        <path d="M609.456 271.74l-60.944 60.943 241.36 241.36 60.943-60.944z" fill="#444444"
-                            p-id="4266"></path>
-                        <path d="M609.552 754.586l-60.943-60.943 241.36-241.36 60.942 60.944z" fill="#444444"
-                            p-id="4267"></path>
-                        <path d="M170.667 469.333H768v85.334H170.667z" fill="#444444" p-id="4268">
-                        </path>
-                    </svg>
-                    </span>
                 </div>
             </div>
             <div class="right">
@@ -78,18 +68,9 @@ title: 首页
             <p>此外，我们创建了分层智能合约模型，可以保证安全和稳定的。基础设施加密货币，并能满足 DeFi 的性能要求。</p>
         </div>
         <div class="m-button">
-            <a style="color: white" target="_blank" href="https://developer.starcoin.org/zh/sips/sip-2/">
+            <a style="color: white" href="/zh/developer/sips/sip-2/">
                 <span>White-paper Link</span>
             </a>
-            <svg t="1621312353017" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                p-id="4265" width="200" height="200">
-                <path d="M609.456 271.74l-60.944 60.943 241.36 241.36 60.943-60.944z" fill="#444444" p-id="4266"></path>
-                <path d="M609.552 754.586l-60.943-60.943 241.36-241.36 60.942 60.944z" fill="#444444" p-id="4267">
-                </path>
-                <path d="M170.667 469.333H768v85.334H170.667z" fill="#444444" p-id="4268">
-                </path>
-            </svg>
-            </span>
         </div>
     </div>
 
@@ -100,7 +81,7 @@ title: 首页
     <div class="container wrapper">
         <div class="Advantages_title">
             <div class="Advantages_h3"><img src="/img/whatwedo@2x.png" />Key Features</div>
-            <div class="more btn-8 visible-lg"><span>MORE +</span></div>
+            <a class="more btn-8"  href="/zh/developer/key_concepts/"><span>MORE +</span></a>
         </div>
         <div class="row ad_top">
             <div class="col-md-4 col-xs-12">
@@ -182,36 +163,24 @@ title: 首页
     <div class="container wrapper">
         <div class="Advantages_title">
             <div class="Example_h3"><img src="/img/whatwedo@2x.png" />Code Example</div>
-            <div class="more btn-8"><span>MORE +</span></div>
+            <a class="more btn-8" href="/zh/developer/move/example/"><span>MORE +</span></a>
         </div>
         <div class="visible-lg">
             <div class="code_view">
                 <div class="code_left">
                     <div class="list index_code_view_tab">
                         <ul>
-                            <li>
-                                <div class="title">Your own curreny</div>
-                                <div class="desc">You can create tokens that you can transfer and use across
-                                    applications.</div>
-                            </li>
                             <li class="select">
-                                <div class="title">Your own bank</div>
-                                <div class="desc">You can build a bank run by logic you've programmed.</div>
+                                <div class="title"> Hello World </div>
+                                <div class="desc"></div>
                             </li>
                             <li>
-                                <div class="title">Your own curreny</div>
-                                <div class="desc">You can create tokens that you can transfer and use across
-                                    applications.</div>
+                                <div class="title"> Token </div>
+                                <div class="desc"></div>
                             </li>
                             <li>
-                                <div class="title">Your own curreny</div>
-                                <div class="desc">You can create tokens that you can transfer and use across
-                                    applications.</div>
-                            </li>
-                            <li>
-                                <div class="title">Your own curreny</div>
-                                <div class="desc">You can create tokens that you can transfer and use across
-                                    applications.</div>
+                                <div class="title"> Deploy Stmart Contract </div>
+                                <div class="desc"></div>
                             </li>
                         </ul>
                     </div>
@@ -225,177 +194,75 @@ title: 首页
                         </div>
                     </div>
                     <div class="code_body">
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #1A234D;">
-                            <span class="grzBLt">1</span>
-                            <span class="cVTXYw">
-                                // SPDX-License-Identifier: MIT
-                            </span>
+                        <div class="code_page_0 code_page_item">
+<pre>
+1     module Hello {
+2         use 0x1::Signer;
+3         use 0x1::Event;
+4
+5         struct AnyWordEvent has drop, store {
+6             words: vector<u8>,
+7         }
+8
+9         struct EventHolder has key {
+10            any_word_events: Event::EventHandle<AnyWordEvent>,
+11        }
+12
+13        public(script) fun hello(account: &signer) acquires EventHolder {
+14            let addr = Signer::address_of(account);
+15            if (!exists<EventHolder>(copy addr)){
+16                move_to(account, EventHolder {
+17                    any_word_events: Event::new_event_handle<AnyWordEvent>(account),
+18                });
+19            };
+20            let hello_world = x"68656c6c6f20776f726c64";//hello world
+21            let holder = borrow_global_mut<EventHolder>(addr);
+22            Event::emit_event<AnyWordEvent>(&mut holder.any_word_events, AnyWordEvent { words:hello_world });
+23        }
+24    }
+</pre>
                         </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">3</span>
-                            <span class="cVTXYw">
-                                // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
-                                message:@"message"
-                            </span>
+                        <div class="code_page_1 code_page_item" style="display: none;">
+<pre>
+1     module MyToken {
+2         use 0x1::Token;
+3         use 0x1::Account;
+4
+5         struct MyToken has copy, drop, store { }
+6
+7         public(script) fun init(account: &signer) {
+8             Token::register_token<MyToken>(account, 3);
+9             Account::do_accept_token<MyToken>(account);
+10        }
+11
+12        public(script) fun mint(account: &signer, amount: u128) {
+13           let token = Token::mint<MyToken>(account, amount);
+14           Account::deposit_to_self<MyToken>(account, token)
+15        }
+16   }
+</pre>
                         </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">4</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">5</span>
-                            <span class="cVTXYw">
-                                - (IBAction)showAlert:(UIButton *)sender {
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">6</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">7</span>
-                            <span class="cVTXYw">
-                                - (IBAction)showAlert:(UIButton *)sender {
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">8</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #1A234D;">
-                            <span class="grzBLt">9</span>
-                            <span class="cVTXYw">
-                                // SPDX-License-Identifier: MIT
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">10</span>
-                            <span class="cVTXYw">
-                                // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
-                                message:@"message"
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">11</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">12</span>
-                            <span class="cVTXYw">
-                                - (IBAction)showAlert:(UIButton *)sender {
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">13</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">14</span>
-                            <span class="cVTXYw">
-                                - (IBAction)showAlert:(UIButton *)sender {
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">15</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #1A234D;">
-                            <span class="grzBLt">16</span>
-                            <span class="cVTXYw">
-                                // SPDX-License-Identifier: MIT
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">17</span>
-                            <span class="cVTXYw">
-                                // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
-                                message:@"message"
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">18</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">19</span>
-                            <span class="cVTXYw">
-                                - (IBAction)showAlert:(UIButton *)sender {
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">20</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">21</span>
-                            <span class="cVTXYw">
-                                - (IBAction)showAlert:(UIButton *)sender {
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">22</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #1A234D;">
-                            <span class="grzBLt">23</span>
-                            <span class="cVTXYw">
-                                // SPDX-License-Identifier: MIT
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">24</span>
-                            <span class="cVTXYw">
-                                // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title"
-                                message:@"message"
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">25</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">26</span>
-                            <span class="cVTXYw">
-                                - (IBAction)showAlert:(UIButton *)sender {
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">27</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">28</span>
-                            <span class="cVTXYw">
-                                - (IBAction)showAlert:(UIButton *)sender {
-                            </span>
-                        </div>
-                        <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                            <span class="grzBLt">29</span>
-                            <span class="cVTXYw">
-                                delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                            </span>
+                        <div class="code_page_2 code_page_item" style="display: none;">
+<pre>
+1     script {
+2         use 0x1::Dao;
+3         use {{coder}}::MyToken::MyToken;
+4         use 0x1::Config;
+5
+6         fun set_dao_config(signer: signer) {
+7             let cap = Config::extract_modify_config_capability<Dao::DaoConfig<MyToken>>(
+8                 &signer
+9             );
+10
+11            Dao::set_voting_delay<MyToken>(&mut cap, 30 * 1000);
+12            Dao::set_voting_period<MyToken>(&mut cap, 30 * 30 * 1000);
+13            Dao::set_voting_quorum_rate<MyToken>(&mut cap, 50);
+14            Dao::set_min_action_delay<MyToken>(&mut cap, 30 * 30 * 1000);
+15
+16            Config::restore_modify_config_capability(cap);
+17        }
+18    }
+</pre>
                         </div>
                     </div>
                 </div>
@@ -417,31 +284,18 @@ title: 首页
                 <div class="m-code-left">
                     <div class="list index_code_view_tab">
                         <ul>
-                            <li>
-                                <div class="title">Your own curreny</div>
-                                <div class="desc">You can create tokens that you can transfer and use across
-                                    applications.</div>
-                            </li>
                             <li class="select">
-                                <div class="title">Your own bank</div>
-                                <div class="desc">You can build a bank run by logic you've programmed.</div>
+                                <div class="title"> Hello World </div>
+                                <div class="desc"></div>
                             </li>
                             <li>
-                                <div class="title">Your own curreny</div>
-                                <div class="desc">You can create tokens that you can transfer and use across
-                                    applications.</div>
+                                <div class="title"> Token </div>
+                                <div class="desc"></div>
                             </li>
                             <li>
-                                <div class="title">Your own curreny</div>
-                                <div class="desc">You can create tokens that you can transfer and use across
-                                    applications.</div>
+                                <div class="title"> Deploy Stmart Contract </div>
+                                <div class="desc"></div>
                             </li>
-                            <li>
-                                <div class="title">Your own curreny</div>
-                                <div class="desc">You can create tokens that you can transfer and use across
-                                    applications.</div>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
@@ -453,67 +307,33 @@ title: 首页
     <div class="container">
         <div class="Team_title wrapper">
             <div class="Team_h3"><img src="/img/whatwedo@2x.png" />Our Team</div>
-            <div class="more btn-8  visible-lg"><span>MORE +</span></div>
+            <a class="more btn-8" href="/zh/about/#team"><span>MORE +</span></a>
         </div>
         <div class="Team_list wrapper visible-lg">
-            <div class="item animation-dot touxiang1"><img src="/img/touxiang.png" /></div>
-            <div class="item animation-dot touxiang2"><img src="/img/touxiang.png" /></div>
-            <div class="item animation-dot touxiang3"><img src="/img/touxiang.png" /></div>
-            <div class="item animation-dot touxiang4"><img src="/img/touxiang.png" /></div>
-            <div class="item animation-dot touxiang5"><img src="/img/touxiang.png" /></div>
-            <div class="item animation-dot touxiang6"><img src="/img/touxiang.png" /></div>
-            <div class="item animation-dot touxiang7"><img src="/img/touxiang.png" /></div>
-            <div class="item animation-dot touxiang8"><img src="/img/touxiang.png" /></div>
-            <div class="item animation-dot touxiang9"><img src="/img/touxiang.png" /></div>
-            <div class="item animation-dot touxiang10"><img src="/img/touxiang.png" /></div>
+            <div class="item animation-dot touxiang1"><img src="/img/noah_jessop.jpeg" /></div>
+            <div class="item animation-dot touxiang2"><img src="/img/damir_s.jpeg" /></div>
         </div>
         <!-- 手机端显示 -->
         <div class="m-team-list wrapper visible-xs visible-sm visible-md">
             <div class="li">
                 <div class="label">理事会成员</div>
                 <div class="left-pic">
-                    <img src="/img/touxiang.png" />
+                    <img src="/img/noah_jessop.jpeg" />
                 </div>
                 <div class="right-content">
                     <div class="info">
-                        <div class="name">塔玛拉·哈森</div>
-                        <p>（Tamara Haasen）</p>
+                        <div class="name">Noah Jessop</div>
                     </div>
                 </div>
             </div>
             <div class="li">
                 <div class="label">理事会成员</div>
                 <div class="left-pic">
-                    <img src="/img/touxiang.png" />
+                    <img src="/img/damir_s.jpeg" />
                 </div>
                 <div class="right-content">
                     <div class="info">
-                        <div class="name">塔玛拉·哈森</div>
-                        <p>（Tamara Haasen）</p>
-                    </div>
-                </div>
-            </div>
-            <div class="li">
-                <div class="label">理事会成员</div>
-                <div class="left-pic">
-                    <img src="/img/touxiang.png" />
-                </div>
-                <div class="right-content">
-                    <div class="info">
-                        <div class="name">塔玛拉·哈森</div>
-                        <p>（Tamara Haasen）</p>
-                    </div>
-                </div>
-            </div>
-            <div class="li">
-                <div class="label">理事会成员</div>
-                <div class="left-pic">
-                    <img src="/img/touxiang.png" />
-                </div>
-                <div class="right-content">
-                    <div class="info">
-                        <div class="name">塔玛拉·哈森</div>
-                        <p>（Tamara Haasen）</p>
+                        <div class="name">Damir S</div>
                     </div>
                 </div>
             </div>
@@ -532,73 +352,76 @@ title: 首页
 
 
         <div class="code_view">
-            <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                <span class="grzBLt">1</span>
-                <span class="cVTXYw">
-                    // SPDX-License-Identifier: MIT
-                </span>
+            <div class="code_view_page_0 code_view_page_item">
+<pre>
+1     module Hello {
+2         use 0x1::Signer;
+3         use 0x1::Event;
+4     
+5         struct AnyWordEvent has drop, store {
+6             words: vector<u8>,
+7         }
+8     
+9         struct EventHolder has key {
+10            any_word_events: Event::EventHandle<AnyWordEvent>,
+11        }
+12    
+13        public(script) fun hello(account: &signer) acquires EventHolder {
+14            let addr = Signer::address_of(account);
+15            if (!exists<EventHolder>(copy addr)){
+16                move_to(account, EventHolder {
+17                    any_word_events: Event::new_event_handle<AnyWordEvent>(account),
+18                });
+19            };
+20            let hello_world = x"68656c6c6f20776f726c64";//hello world
+21            let holder = borrow_global_mut<EventHolder>(addr);
+22            Event::emit_event<AnyWordEvent>(&mut holder.any_word_events, AnyWordEvent { words:hello_world });
+23        }
+24    }
+</pre>
             </div>
-            <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                <span class="grzBLt">2</span>
-                <span class="cVTXYw">
-                    - (IBAction)showAlert:(UIButton *)sender {
-                </span>
+            <div class="code_view_page_1 code_view_page_item" style="display: none;">
+<pre>
+1     module MyToken {
+2         use 0x1::Token;
+3         use 0x1::Account;
+4    
+5         struct MyToken has copy, drop, store { }
+6    
+7         public(script) fun init(account: &signer) {
+8             Token::register_token<MyToken>(account, 3);
+9             Account::do_accept_token<MyToken>(account);
+10        }
+11   
+12        public(script) fun mint(account: &signer, amount: u128) {
+13           let token = Token::mint<MyToken>(account, amount);
+14           Account::deposit_to_self<MyToken>(account, token)
+15        }
+16   }
+</pre>
             </div>
-            <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                <span class="grzBLt">3</span>
-                <span class="cVTXYw">
-                    // UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"message"
-                </span>
+            <div class="code_view_page_2 code_view_page_item" style="display: none;">
+<pre>
+1     script {
+2         use 0x1::Dao;
+3         use {{coder}}::MyToken::MyToken;
+4         use 0x1::Config;
+5     
+6         fun set_dao_config(signer: signer) {
+7             let cap = Config::extract_modify_config_capability<Dao::DaoConfig<MyToken>>(
+8                 &signer
+9             );
+10    
+11            Dao::set_voting_delay<MyToken>(&mut cap, 30 * 1000);
+12            Dao::set_voting_period<MyToken>(&mut cap, 30 * 30 * 1000);
+13            Dao::set_voting_quorum_rate<MyToken>(&mut cap, 50);
+14            Dao::set_min_action_delay<MyToken>(&mut cap, 30 * 30 * 1000);
+15    
+16            Config::restore_modify_config_capability(cap);
+17        }
+18    }
+</pre> 
             </div>
-            <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                <span class="grzBLt">4</span>
-                <span class="cVTXYw">
-                    delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                </span>
-            </div>
-            <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                <span class="grzBLt">5</span>
-                <span class="cVTXYw">
-                    - (IBAction)showAlert:(UIButton *)sender {
-                </span>
-            </div>
-            <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                <span class="grzBLt">6</span>
-                <span class="cVTXYw">
-                    delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                </span>
-            </div>
-            <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                <span class="grzBLt">5</span>
-                <span class="cVTXYw">
-                    - (IBAction)showAlert:(UIButton *)sender {
-                </span>
-            </div>
-            <div class="Codeblock__Line-bq0bh-3 izzMiH token-line" style="color: #FFFFFF;">
-                <span class="grzBLt">6</span>
-                <span class="cVTXYw">
-                    delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                </span>
-            </div>
-            <!-- - (IBAction)showAlert:(UIButton *)sender {
-                      //显示提示框
-                      //过时
-                  //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title" message:@"message" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"ok", nil];
-                  //    [alert show];
-                      UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Title"
-                                                                                     message:@"This is an alert."
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-                      
-                      UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                            handler:^(UIAlertAction * action) {
-                                                                                //响应事件
-                                                                                NSLog(@"action = %@", action);
-                                                                            }];
-                      UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
-                                                                            handler:^(UIAlertAction * action) {
-                                                                                //响应事件 -->
-
-
         </div>
     </div>
 </div>
@@ -614,12 +437,25 @@ title: 首页
         $(".index_code_view_tab li").click(function () {
             $(".index_code_view_tab li").removeClass("select")
             $(this).addClass("select")
+            let index = $(this).index()
+            let codePageItem = [...$('.code_body .code_page_item')]
+            codePageItem.forEach(item => {
+                item.style.display = 'none'
+            })
+            $(`.code_page_${index}`)[0].style.display = 'block'
         })
 
         $(".m-code-view li").click(function () {
+            $(".code_fixed_back .code_model .head_top")[0].innerText = $(this)[0].innerText
             $(".m-code-view li").removeClass("select")
             $(this).addClass("select")
             $("#code_fixed_back").show()
+            let index = $(this).index()
+            let codePageItem = [...$('.code_view .code_view_page_item')]
+            codePageItem.forEach(item => {
+                item.style.display = 'none'
+            })
+            $(`.code_view_page_${index}`)[0].style.display = 'block'
         })
     })
 </script>
