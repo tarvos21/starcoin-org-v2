@@ -117,7 +117,7 @@
         bottom: 0;
         background: #1C4BDE;
         /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-                            -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+                            -4px -4px 6px 0 rgba(116, 125, 136, .2),
                   inset -4px -4px 6px 0 rgba(255,255,255,.5),
                   inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
         -webkit-transition: all 0.8s ease;
@@ -145,7 +145,7 @@
         top: 0;
         background: #1C4BDE;
         /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-                            -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+                            -4px -4px 6px 0 rgba(116, 125, 136, .2),
                   inset -4px -4px 6px 0 rgba(255,255,255,.5),
                   inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
         -webkit-transition: all 0.8s ease;
@@ -261,6 +261,19 @@
   background-image: url("../img/advantages_back.png");
   background-size: 100% 100%;
   padding-bottom: 109px; }
+
+.Advantages .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.Advantages .row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
   .Advantages .container .Advantages_title {
     display: -webkit-box;
     display: -webkit-flex;
@@ -286,6 +299,7 @@
   .Advantages .container .item_top {
     margin-top: 41px; }
   .Advantages .container .item {
+    height: 100%;
     background: #FFFFFF;
     padding-top: 30px;
     padding-bottom: 40px;
@@ -318,10 +332,12 @@
       font-weight: 400;
       line-height: 33px;
       letter-spacing: 1px;
-      overflow: hidden;
       color: #272B3E;
+      /*
+      overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 4;
+      */
       -webkit-box-orient: vertical; }
 
 .Example .container .Advantages_title {
@@ -484,10 +500,24 @@
     border-left: 2px solid #5B76F1;
     border-right: 2px solid #5B76F1;
     border-bottom: 2px solid #5B76F1;
-    padding: 9px 0 9px 30px;
+    /* padding: 9px 0 9px 30px; */
     overflow: auto;
     line-height: 2.3;
     letter-spacing: 0.5px; }
+    .Example .container .code_view .code_right .code_body .code_page_item pre {
+      border: none;
+      padding: 5px;
+      background-color: #ffffff;
+    }
+    .code_fixed_back .code_model .code_view {
+      padding: 0;
+    }
+    .code_fixed_back .code_model .code_view pre {
+      border: none;
+      padding: 5px;
+      background-color: #1a1f2d;
+      color: #FFFFFF;
+    }
     .Example .container .code_view .code_right .code_body .grzBLt {
       font-size: 14px;
       font-family: "font-PingFangMedium";
@@ -506,6 +536,7 @@
   background-image: url("../img/team_back.png");
   background-size: 100% 100%; }
   .Team .container .m-team-list {
+    margin-top: 40px;
     padding: 0 15px 0 15px; }
     .Team .container .m-team-list .li {
       background: #ffffff;
