@@ -43,10 +43,10 @@
   translation: 技术白皮书
 - id: navOverviewEconomyWhitepaper
   translation: 经济模型白皮书
-- id: navLearnWalletInstall
-  translation: 安装钱包
-- id: navLearnWalletUse
-  translation: 使用钱包
+- id: navLearnStarcoinWallet
+  translation: Starcoin钱包
+- id: navLearnStarmask
+  translation: StarMask浏览器钱包
 - id: navLearnNodeMining
   translation: 节点挖矿
 - id: navLearnNodeCommand
@@ -86,7 +86,7 @@
 - id: navDeveloperStratumPoolGuide
   translation: 矿池接入指南
 - id: navDeveloperStratumPoolStratumMiningProtocol
-  translation: 层开采协议
+  translation: 矿池协议
 - id: navCommunityWestar
   translation: Westar 实验室
 - id: navCommunityTwitter
