@@ -42,6 +42,13 @@ hugo -s . --minify
 <!-- need to replace initial-scale and maximum-scale value from 1 to 1.0 -->
 find ./public -name *.html | xargs sed -i 's/-scale=1;/-scale=1.0;/g'
 
+On mac:
+
+```
+export LC_CTYPE=C LANG=C
+find ./public -name '*.html' -print0 | xargs -0 sed -i -e 's/-scale=1;/-scale=1.0;/g'
+```
+
 3. serve pubic folder as static site
 cd public
 serve ./public -l 8004

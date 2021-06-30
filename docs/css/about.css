@@ -314,6 +314,7 @@
         width: 100%;
         margin-bottom: 70px; }
         .about_us .lsh_list li .lsh_portrait {
+          display: inline-flex;
           width: 130px;
           height: 130px; }
         .about_us .lsh_list li .post_title {
