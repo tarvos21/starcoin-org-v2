@@ -1582,6 +1582,16 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+/* @media (min-width: 375px) {
+  .container  {
+    width: 375px;
+  }
+} */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
 @media (min-width: 992px) {
   .container {
     width: 970px;
@@ -4291,7 +4301,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-bottom .navbar-collapse {
   max-height: 340px;
 }
-@media (max-device-width: 480px) and (orientation: landscape) {
+@media (max-width: 480px) and (orientation: landscape) {
   .navbar-fixed-top .navbar-collapse,
   .navbar-fixed-bottom .navbar-collapse {
     max-height: 200px;
