@@ -1,0 +1,175 @@
+html,
+body {
+  position: relative;
+  height: 100%; }
+
+body {
+  background: #eee;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0; }
+
+.swiper-container {
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#113B69), to(#052E5D));
+  background: -webkit-linear-gradient(left, #113B69 0%, #052E5D 100%);
+  background: -o-linear-gradient(left, #113B69 0%, #052E5D 100%);
+  background: linear-gradient(90deg, #113B69 0%, #052E5D 100%); }
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  height: 1000px;
+  width: 100%;
+  background: url("/img/p-banner.png") no-repeat center top;
+  /* Center slide text vertically */ }
+  .swiper-slide .banner-text {
+    color: #ffffff;
+    font-size: 66px;
+    width: 1300px;
+    margin: 0 auto;
+    padding-top: 305px;
+    padding-left: 140px;
+    padding-right: 140px;
+    text-align: left;
+    line-height: 96px;
+    letter-spacing: 3px; }
+    .swiper-slide .banner-text a {
+      color: #fff; 
+      text-decoration: none;}
+    .swiper-slide .banner-text span {
+      color: #D05829; }
+  .swiper-slide img {
+    width: 100%; }
+
+    .button-next {
+      width: 54px;
+      height: 82px;
+      position: absolute;
+      top: 50%;
+      z-index: 10;
+      cursor: pointer;
+      right: 90px;
+      margin-top: -41px;
+      left: auto;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      .button-next img {
+        width: 100%; }
+      .button-next:after {
+        content: ''; }
+    
+    .button-prev {
+      width: 54px;
+      height: 82px;
+      position: absolute;
+      top: 50%;
+      z-index: 10;
+      margin-top: -41px;
+      left: 90px;
+      right: auto;
+      cursor: pointer;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      .button-prev img {
+        width: 100%; }
+      .button-prev:after {
+        content: ''; }
+
+/* news新闻样式 */
+/* news的样式 */
+.news-columns:last-child {
+  margin-bottom: -.75rem;
+}
+
+.news-container .box {
+background-color: #fff;
+border-radius: 6px;
+box-shadow: 0 2px 3px rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 10%);
+color: #4a4a4a;
+display: block;
+padding: .15rem;
+}
+
+.news-container .news-columns {
+  display: flex;
+  margin-left: -.75rem;
+  margin-right: -.75rem;
+  margin-top: -.75rem;
+}
+
+.news-container .news-section {
+padding: .3rem 1rem;
+}
+.news-container .news-column.news-is-9, .news-container .news-column.news-is-9-tablet {
+flex: none;
+width: 75%;
+}
+
+.news-container .news-column {
+display: block;
+flex-basis: 0;
+flex-grow: 1;
+flex-shrink: 1;
+padding: .75rem;
+}
+
+.news-container .news-tile {
+  align-items: stretch;
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-height: -webkit-min-content;
+  min-height: -moz-min-content;
+  min-height: min-content;
+}
+
+.news .content-title {
+  margin-bottom: 10px;
+}
+
+.news .content-title .is-size-1 {
+font-size: 32px;
+font-weight: 600;
+line-height: 1.125;
+}
+
+@media (max-width: 768px) {
+  .swiper-slide {
+    height: 667px;
+    background: #1C4BDE;
+    width: 100%;
+    background: url("../img/m-banner.png");
+    background-size: 100% 100%; }
+    .swiper-slide .banner-text {
+      font-size: 26px;
+      line-height: 55px;
+      width: 400px;
+      letter-spacing: 2px;
+      padding-top: 0px;
+      padding-left: 0px;
+      margin: 166px 0 0 20px; }
+      .swiper-slide .banner-text span {
+        color: #FF5714; } }
