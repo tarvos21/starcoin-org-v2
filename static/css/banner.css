@@ -20,7 +20,7 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  height: 1000px;
+  height: 843px;
   width: 100%;
   background: url("/img/p-banner.png") no-repeat center top;
   /* Center slide text vertically */ }
@@ -29,7 +29,7 @@ body {
     font-size: 66px;
     width: 1300px;
     margin: 0 auto;
-    padding-top: 305px;
+    padding-top: 220px;
     padding-left: 140px;
     padding-right: 140px;
     text-align: left;
