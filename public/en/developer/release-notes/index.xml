@@ -23,4 +23,6 @@
 &lt;li>Deprecated BlockHeader&amp;rsquo;s author_auth_key field, author_auth_key is always None from this version. This is compatible.&lt;/li>
 &lt;/ol>
 &lt;p>Upgrade suggestion:&lt;/p>
-&lt;p>Bug (&lt;a href="https://github.com/starcoinorg/starcoin/pull/2689">#2689&lt;/a>) may cause wrong transaction info to be retrieved, please upgrade to v1.3.1 or v1.4.0 as soon as possible&lt;/p></description></item></channel></rss>
+&lt;p>Bug (&lt;a href="https://github.com/starcoinorg/starcoin/pull/2689">#2689&lt;/a>) may cause wrong transaction info to be retrieved, please upgrade to v1.3.1 or v1.4.0 as soon as possible&lt;/p></description></item><item><title>v1.5.0</title><link>/en/developer/release-notes/v1.5.0/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/en/developer/release-notes/v1.5.0/</guid><description>This release contains the following important features.
+Move stdlib upgrades to V6. Fix a bug in VM which can cause some resources cannot be written into chain state when upgrading modules.This&amp;rsquo;s a BREAKING change. #161 starcion-cli supports two node managing commands: delete a specific block and reset node startup info. #2792, #2796 Some internal improvements, like #2794, and bugfix #2787. Full release note can be found here.
+Upgrade suggestion: This version is not compatible with old versions.</description></item></channel></rss>
