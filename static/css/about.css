@@ -10,7 +10,6 @@ body {
   box-shadow: 0px 3px 40px 0px rgba(16, 31, 88, 0.04); */
   border-radius: 4px;
   margin-bottom: 100px;
-  padding-top: 29px;
   position: relative;
   display: flex;
 }
@@ -24,8 +23,6 @@ body {
 .about_us .tab ul li {
   padding-left: 30px;
   font-size: 20px;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
   line-height: 60px;
   border-left: 4px solid rgba(255, 255, 255, 0.7);
@@ -47,7 +44,7 @@ body {
 }
 
 .about_us .content{
-  margin-top: 80px;
+  margin-top: 107px;
   width: 860px;
 }
 
@@ -61,8 +58,6 @@ body {
 
 .about_us .about_title {
   font-size: 42px;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
   color: #FFFFFF;
   line-height: 42px;
   position: relative;
@@ -83,7 +78,6 @@ body {
   padding-left: 40px;
   padding-right: 40px;
   font-size: 16px;
-  font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
   line-height: 32px;
 }
@@ -202,8 +196,6 @@ body {
 .about_us .team_dashiji .team_line .item .item_row1 .item_col3{
   margin-left: 20px;
   font-size: 18px;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
   color: #FFFFFF;
   line-height: 18px;
 }
@@ -233,8 +225,6 @@ body {
 
 .about_us .team_introduce .team_h3 {
   font-size: 22px;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
   color: #FFFFFF;
   line-height: 22px;
   position: relative;
@@ -295,8 +285,6 @@ body {
 .about_us .westr_title {
   padding: 0 40px;
   font-size: 22px;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
   color: #FFFFFF;
   line-height: 22px;
 }
