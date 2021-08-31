@@ -12,7 +12,7 @@
 }
 
 .news .news_list_title{
-  width: 90%;
+  width: 100%;
   margin-top: 124px;
   font-size: 42px;
   color: #FFFFFF;
@@ -21,15 +21,19 @@
 }
 
 .news .news_list_back{
-  width: 90%;
+  width: 100%;
   margin-top: 124px;
   height: 14px;
   font-size: 14px;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
   line-height: 14px;
   text-align: left;
+  opacity: 0.8;
+}
+.news .news_list_back:hover{
+  opacity: 1;
 }
 .news .news_list_back img{
   width: 18px;
@@ -39,7 +43,7 @@
 
 .news .news_list {
   margin-top: 80px;
-	width: 90%;
+	width: 100%;
 	background: #262734;
   border-radius: 10px;
 }
@@ -336,15 +340,16 @@
 
 .tile .content .content-text{
   margin-top: 30px;
+  word-wrap:break-word;
 }
 
 .tile .content h2 {
-	font-size: 1.75em;
+	font-size: 1.5em;
 	margin-bottom: .5714em;
 }
 
 .tile strong {
-	color: #363636;
+	color: #FFFFFF;
 	font-weight: 700;
 }
 
@@ -476,6 +481,8 @@ pre {
     background-image: url("../img/m_news_bg.png");
     background-size: 100% 140px;
     padding: 0 18px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 	}
 
   .news .news_list_title{
@@ -485,7 +492,6 @@ pre {
   }
 
   .news .news_list_back{
-    margin-top: 50px;
     font-size: 12px;
     line-height: 12px;
   }
